@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Buying Experience</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f8fc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    width: 100%;
+    background: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+
+.nav-links li .get-app  {
+    background-color: #f6c445;
+    padding: 0.5rem 0.8rem;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6rem;
+    width: 80%;
+    padding: 2rem;
+}
+
+.text-section {
+    max-width: 500px;
+    text-align: left;
+}
+
+.text-section h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.text-section h1 span {
+    background-color: #f6c445;
+    padding: 0 0.3rem;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+form input[type="email"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 0;
+    border-radius: 15px 0 0 15px;
+    outline: none;
+    width: 250px;
+
+}
+
+form button {
+    padding: 0.8rem 1.5rem;
+    background-color: #72fa93;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45958E;
+}
+
+.phone-image img {
+    max-width: 300px;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ACCENTICO</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Prices</a></li>
+            <li><a href="#" class="get-app">Get App</a></li>
+        </ul>
+        </nav>
+    </header>
+
+    <section class="main-content">
+        <div class="text-section">
+            <h1>The best <span>ticket buying</span> experience</h1>
+            <form>
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="phone-image">
+            <img src="phone.png" alt="Phone Display">
+        </div>
+    </section>
+
+    <script src="script.js">
+        document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    alert("Email submitted!");
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration and Login</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 10px;
+    }
+
+    .login-form {
+      display: block;
+    }
+
+    .register-form {
+      display: none;
+    }
+
+    .toggle-form {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .toggle-form a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .toggle-form a:hover {
+      text-decoration: underline;
+    }
+
+    .user-home {
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>User Authentication</h2>
+
+    <form class="login-form" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+      <div class="error"></div>
+    </form>
+
+    <form class="register-form" onsubmit="handleRegister(event)">
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="register-email">Email Address:</label>
+        <input type="email" id="register-email" name="register-email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="register-password">Password:</label>
+        <input type="password" id="register-password" name="register-password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn">Register</button>
+      <div class="error"></div>
+    </form>
+
+    <div class="toggle-form">
+      <a href="#" class="login-link">Login</a> | 
+      <a href="#" class="register-link">Register</a>
+    </div>
+
+    <div class="user-home">
+      <h3>Welcome, <span id="user-name"></span>!</h3>
+      <p>This is your home page.</p>
+    </div>
+  </div>
+
+  <script>
+    let users = {};
+    if (localStorage.getItem('users')) {
+      users = JSON.parse(localStorage.getItem('users'));
+    }
+
+    const loginForm = document.querySelector('.login-form');
+    const registerForm = document.querySelector('.register-form');
+    const loginLink = document.querySelector('.login-link');
+    const registerLink = document.querySelector('.register-link');
+    const userHome = document.querySelector('.user-home');
+    const userName = document.getElementById('user-name');
+    const errorDiv = document.querySelectorAll('.error');
+
+    // Handle registration form submission
+    function handleRegister(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('register-email').value;
+      const password = document.getElementById('register-password').value;
+
+      if (users[email]) {
+        // User already exists
+        errorDiv[1].textContent = 'User with this email already exists.';
+      } else {
+        // Create new user
+        users[email] = { name, password };
+        localStorage.setItem('users', JSON.stringify(users));
+        
+        // Successful registration, redirect to login form
+        showLoginForm();
+      }
+    }
+
+    // Handle login form submission
+    function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      if (users[email] && users[email].password === password) {
+        // Successful login
+        window.location.href = 'mainhome.html';
+      } else {
+        // Invalid login
+        errorDiv[0].textContent = 'Invalid email or password.';
+      }
+    }
+
+    // Show login form
+    function showLoginForm() {
+      loginForm.style.display = 'block';
+      registerForm.style.display = 'none';
+      userHome.style.display = 'none';
+    }
+
+    // Show registration form
+    function showRegisterForm() {
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'block';
+      userHome.style.display = 'none';
+    }
+
+    // Event listeners for form submission and toggle buttons
+    registerForm.addEventListener('submit', handleRegister);
+    loginForm.addEventListener('submit', handleLogin);
+    loginLink.addEventListener('click', showLoginForm);
+    registerLink.addEventListener('click', showRegisterForm);
+  </script>
+</body>
+</html>

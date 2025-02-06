@@ -1,0 +1,143 @@
+<html></html>
+ <head>
+  <title>
+   Accentico
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Inter', sans-serif;
+        }
+
+    /* .left{
+        float: left;
+    } */
+    /* .left{
+        width: 50%;
+    } */
+    main{
+    display: flex;
+    justify-content: space-around;
+    padding: auto;
+    text-align: center;
+    background-image: url(bg.png);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: fill;
+
+}
+.relative, .left{
+    width: 50%;
+
+}
+  </style>
+ </head>
+ <body class="bg-gray-100">
+  <header class="flex justify-between items-center p-6 bg-white shadow-md ">
+   <div class="text-xl font-bold">
+    AMAJAMA
+   </div>
+   <nav class="space-x-6">
+    <a class="text-gray-600 hover:text-gray-900" href="#">
+     Overview
+    </a>
+    <a class="text-gray-600 hover:text-gray-900" href="#">
+     Prices
+    </a>
+    <a class="text-gray-600 hover:text-gray-900" href="#">
+     Blog
+    </a>
+    <a class="text-gray-600 hover:text-gray-900" href="#">
+     Feedback
+    </a>
+   </nav>
+   <button class="bg-red-500 text-white px-4 py-2 rounded-full">
+    Purchase
+   </button>
+  </header>
+  <main >
+   <div class="left">
+    <h1 class="text-4xl font-bold mb-4">
+        The best ticket buying experience
+       </h1>
+       <p class="text-gray-600 mb-8">
+        The most important part of the Startup is the examples. The examples form a set of 25 usable pages you can use as is or you can add new blocks.
+       </p>
+       <button class="bg-green-500 text-white px-6 py-3 rounded-full mb-16">
+        Learn More
+       </button>
+   </div>
+   
+   <div class="relative">
+    <img alt="Smartphone displaying a ticket buying app" class="mx-auto " height="400" src="phone1.png" width="350"/>
+    <div class="absolute inset-0 flex justify-center items-center">
+     
+     </div>
+     <div class="bg-green-500 w-20 h-20 rounded-full absolute top-10 right-10">
+     </div>
+     <div class="bg-blue-500 w-10 h-10 rounded-full absolute bottom-10 left-20">
+     </div>
+     <div class="bg-red-500 w-40 h-40 rounded-full absolute -top--20 -left-20"></div>
+    </div>
+   </div>
+  </main>
+  
+  <section class="bg-blue-100 py-16">
+   <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+    <div>
+     <i class="fas fa-laptop-code text-4xl text-blue-500 mb-4">
+     </i>
+     <h3 class="text-xl font-bold mb-2">
+      Responsive Layout
+     </h3>
+     <p class="text-gray-600">
+      All components are responsive and look great on all devices.
+     </p>
+    </div>
+    <div>
+     <i class="fas fa-eye text-4xl text-blue-500 mb-4">
+     </i>
+     <h3 class="text-xl font-bold mb-2">
+      Retina Ready
+     </h3>
+     <p class="text-gray-600">
+      High resolution graphics for sharp and clear images.
+     </p>
+    </div>
+    <div>
+     <i class="fas fa-code text-4xl text-blue-500 mb-4">
+     </i>
+     <h3 class="text-xl font-bold mb-2">
+      Clean Code
+     </h3>
+     <p class="text-gray-600">
+      Well organized and easy to understand code.
+     </p>
+    </div>
+    <div>
+     <i class="fas fa-thumbs-up text-4xl text-blue-500 mb-4">
+     </i>
+     <h3 class="text-xl font-bold mb-2">
+      Great Design
+     </h3>
+     <p class="text-gray-600">
+      Modern and professional design for your startup.
+     </p>
+    </div>
+   </div>
+  </section>
+  <footer class="bg-black text-white py-8">
+   <div class="text-center mb-4">
+    Twenty Five Awesome Startup Web Pages
+   </div>
+   <div class="text-center">
+    <button class="bg-yellow-500 text-black px-6 py-3 rounded-full">
+     Try Startup Now
+    </button>
+   </div>
+  </footer>
+ </body>
+</html>

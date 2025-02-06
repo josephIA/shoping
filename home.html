@@ -1,0 +1,46 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .dropdown-content {
+            display: none;
+        }
+        .dropdown.active .dropdown-content {
+            display: block;
+            width: min-content;
+        }
+    </style>
+    <script>
+        function toggleDropdown() {
+            document.getElementById('dropdown').classList.toggle('active');
+        }
+    </script>
+</head>
+<body class="bg-blue-200 h-screen flex flex-col justify-between items-center">
+    <div class="w-full flex justify-between p-4">
+        <button class="text-white text-2xl">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="relative dropdown" id="dropdown">
+            <button class="text-white text-2xl" onclick="toggleDropdown()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="dropdown-content absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg">
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Item 1 screenshot of current version?</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Item 2</a>
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Item 3</a>
+            </div>
+        </div>
+    </div>
+    <div class="flex flex-col items-center">
+        <div class="text-white text-6xl mb-4">
+            <i class="fas fa-a"></i>
+        </div>
+        <div class="text-white text-lg tracking-widest">ACCENTICO</div>
+    </div>
+    <div class="mb-8">
+        <a href=loginpage.html><button class="bg-transparent border border-white text-white py-2 px-8 rounded-full">Continue</button></a>
+    </div>
+</body>
+</html>
